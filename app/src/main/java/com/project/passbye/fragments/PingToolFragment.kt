@@ -52,7 +52,7 @@ class PingToolFragment : Fragment(R.layout.fragment_ping_tool) {
 
             try {
                 val address = InetAddress.getByName(ipAddress)
-                val pingCount = 4 // Number of pings to simulate
+                val pingCount = 4
                 val sb = StringBuilder()
 
                 for (i in 1..pingCount) {
