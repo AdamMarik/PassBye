@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+        <!-- Toolbar (Optional) -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/scanner_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:title="Scanner Tools"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        <!-- Spinner to select tools -->
+        <Spinner
+            android:id="@+id/tool_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <!-- FrameLayout to dynamically load selected tool -->
+        <FrameLayout
+            android:id="@+id/tools_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"/>
+
+</LinearLayout>
