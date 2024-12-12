@@ -22,10 +22,5 @@
         android:label="Passwords"
         tools:layout="@layout/fragment_passwords" />
 
-    <fragment
-        android:id="@+id/cardsFragment"
-        android:name="com.project.passbye.fragments.CardsFragment"
-        android:label="Cards"
-        tools:layout="@layout/fragment_cards" />
 
 </navigation>
