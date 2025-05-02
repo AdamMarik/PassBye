@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/button_start_capture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Capturing"/>
+
+    <Button
+        android:id="@+id/button_stop_capture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Capturing"/>
+
+    <ScrollView
+        android:id="@+id/scroll_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:layout_marginTop="12dp">
+        <TextView
+            android:id="@+id/textview_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1A"
+            android:padding="12dp"
+            android:lineSpacingExtra="4dp"
+            android:maxLines="1000"
+            android:textIsSelectable="true"/>
+    </ScrollView>
+</LinearLayout>

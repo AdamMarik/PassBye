@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">PassBye</string>
+    <string name="login_button_text">Log In</string>
+    <string name="signup_button_text">Sign Up</string>
+    <string name="logout_button_text">Log Out</string>
+    <string name="welcome_message">Welcome to PassBye!</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="name_hint">Name</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_signup">Signup</string>
+    <string name="title_activity_scanner">Scanner</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_admin_dashboard">AdminDashboard</string>
+    <string name="title_activity_change_password">Change Password</string>
+    <string name="title_activity_ChangePassword">ChangePassword</string>
+    <string name="app_logo">app_logo</string>
+</resources>

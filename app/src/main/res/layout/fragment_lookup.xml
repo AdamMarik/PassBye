@@ -1,0 +1,41 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/lookup_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter domain or IP"
+            android:inputType="textUri"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/lookup_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lookup"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/lookup_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textIsSelectable="true"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/lookup_open_browser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔗 Open Full Report"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+</ScrollView>

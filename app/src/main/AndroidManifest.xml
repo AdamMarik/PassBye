@@ -1,0 +1,107 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Internet Permission -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VPN_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" tools:ignore="BackgroundServiceType" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PassBye"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+
+        <!-- Welcome Activity -->
+        <activity
+            android:name="com.project.passbye.activities.WelcomeActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.PassBye">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.project.passbye.activities.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.PassBye" />
+
+        <activity
+            android:name="com.project.passbye.activities.SignupActivity"
+            android:exported="false"
+            android:label="@string/title_activity_signup"
+            android:theme="@style/Theme.PassBye" />
+
+        <activity
+            android:name="com.project.passbye.activities.MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        <activity android:name="com.project.passbye.activities.AdminDashboardActivity"
+            android:exported="false"
+            android:label="@string/title_activity_admin_dashboard"
+            android:theme="@style/Theme.PassBye"/>
+
+        <activity android:name="com.project.passbye.activities.ChangePasswordActivity"
+            android:exported="false"
+            android:label="@string/title_activity_ChangePassword"
+            android:theme="@style/Theme.PassBye"/>
+
+        <!-- VPN Service Declaration without foregroundServiceType -->
+        <service
+            android:name="com.project.passbye.vpn.PacketCaptureVpnService"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:exported="true"
+            android:foregroundServiceType="dataSync">
+            <intent-filter>
+                <action android:name="android.net.vpn.VPN_SERVICE" />
+            </intent-filter>
+        </service>
+
+        <service android:name="com.project.passbye.analysis.DnsSnifferService" android:exported="false"/>
+
+        <service
+            android:name="com.project.passbye.autofill.PassByeAutofillService"
+            android:permission="android.permission.BIND_AUTOFILL_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.autofill.AutofillService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.autofill"
+                android:resource="@xml/autofill_service" />
+        </service>
+
+        <activity android:name="com.project.passbye.autofill.AuthFillActivity"
+            android:exported="true"
+            android:launchMode="singleTask"/>
+
+
+
+    </application>
+
+</manifest>

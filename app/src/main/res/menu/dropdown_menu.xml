@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tcp_tracker"
+        android:title="TCP Tracker" />
+    <item
+        android:id="@+id/network_analyzer"
+        android:title="Network Analyzer" />
+    <item
+        android:id="@+id/ping_tool"
+        android:title="Ping Tool" />
+    <item
+        android:id="@+id/packet_tracer"
+        android:title="Packet Tracer" />
+    <item
+        android:id="@+id/ssl_inspector"
+        android:title="SSL/TLS Inspector" />
+    <item
+        android:id="@+id/dns_query_tool"
+        android:title="DNS Query Tool" />
+</menu>
