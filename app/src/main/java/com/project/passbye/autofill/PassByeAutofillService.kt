@@ -42,6 +42,7 @@ class PassByeAutofillService : AutofillService() {
             val domain = extractDomainFromStructure(structure)
 
             val responseBuilder = FillResponse.Builder()
+            var datasetAdded = false
 
             credentials.forEach { (fullKey, savedPassword) ->
                 val parts = fullKey.split("|")
@@ -64,9 +65,14 @@ class PassByeAutofillService : AutofillService() {
                     .build()
 
                 responseBuilder.addDataset(dataset)
+                datasetAdded = true
             }
 
-            callback.onSuccess(responseBuilder.build())
+            if (datasetAdded) {
+                callback.onSuccess(responseBuilder.build())
+            } else {
+                callback.onSuccess(null)
+            }
         } else {
             callback.onSuccess(null)
         }
