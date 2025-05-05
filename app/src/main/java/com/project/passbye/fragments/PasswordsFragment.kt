@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.project.passbye.R
 import com.project.passbye.util.EncryptedStorage
+import com.project.passbye.util.PasswordBreachChecker
 import kotlinx.coroutines.*
 
 class PasswordsFragment : Fragment() {
@@ -170,10 +171,21 @@ class PasswordsFragment : Fragment() {
 
             val cleanDomain = dns.removePrefix("https://").removePrefix("http://").removeSuffix("/").lowercase()
 
-            val storage = EncryptedStorage(requireContext())
-            storage.savePassword(currentUser!!, cleanDomain, username, password)
+            scope.launch {
+                val breached = withContext(Dispatchers.IO) {
+                    PasswordBreachChecker.isPasswordPwned(password)
+                }
 
-            loadPasswords()
+                if (breached) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(requireContext(), "⚠️ Password has been found in a data breach!", Toast.LENGTH_LONG).show()
+                    }
+                } else {
+                    val storage = EncryptedStorage(requireContext())
+                    storage.savePassword(currentUser!!, cleanDomain, username, password)
+                    loadPasswords()
+                }
+            }
         }
 
         builder.setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
